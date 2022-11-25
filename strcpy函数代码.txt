@@ -26,5 +26,8 @@ char* MyStrncpy1(char* dest, const char* src, size_t len)
 		*dest++ = '\0';
 	}
 	return ret;
+                /**
+                函数edit
+                **/
 }
 
