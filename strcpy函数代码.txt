@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <assert.h>
+#include <string.h>
+
+char* MyStrncpy1(char* dest, const char* src, size_t len)
+{
+	assert(NULL != dest && NULL != src);
+
+	char* ret = dest;
+	int offset = 0;
+	if (strlen(src) < len) //判断源字符串长度是否小于len
+	{
+		offset = len - strlen(src);
+		len = strlen(src);
+	}
+
+	while (len--)
+	{
+		*dest++ = *src++;
+	}
+
+	while (offset--) //如果源字符串长度小于len，此时需要手动用'\0'补齐len
+	{
+		*dest++ = '\0';
+	}
+	return ret;
+}
+
